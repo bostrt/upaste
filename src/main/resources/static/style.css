@@ -13,7 +13,8 @@ td#title-cell {
 
 }
 
-#title-text {
+#title-text>a {
+	text-decoration: none;
     font-size: 56pt;
     font-style: italic;
     color: #BBBBBB;

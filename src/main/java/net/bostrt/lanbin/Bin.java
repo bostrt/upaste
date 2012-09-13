@@ -65,7 +65,7 @@ public class Bin
 					PasteDAO dao = new PasteDAO();
 					dao.insert(p);
 					
-					return p.getID();
+					response.redirect("/paste/"+p.getUuid());
 				} catch(Exception e) {
 					e.printStackTrace();
 				}

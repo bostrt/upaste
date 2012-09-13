@@ -12,6 +12,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.apache.commons.lang.StringEscapeUtils;
+
 @Entity
 @Table(name = "Paste")
 @NamedQueries({
@@ -83,6 +85,10 @@ public class Paste extends BaseModel {
 	}
 	public String getEmail() {
 		return this.email;
+	}
+	
+	public String getSafeContent() {
+		return StringEscapeUtils.escapeHtml(this.content);
 	}
 	
 	/**

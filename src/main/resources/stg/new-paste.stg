@@ -20,9 +20,9 @@ content(contextObject) ::= <<
 	
 	<br/>
 	
-	Title <input type="text" name="title" />
+	<input type="text" name="title" />
 	
-	Email <input type="text" name="email" />
+	<input type="text" name="email" />
 	
 	<input type="submit" value="Paste &raquo;" />
 </form>

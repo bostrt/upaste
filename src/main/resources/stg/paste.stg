@@ -1,0 +1,20 @@
+import "base.stg"
+
+content(contextObject) ::= <<
+	$contextObject.title$<br/>
+	$contextObject.uuid$<br/>
+	<pre class="prettyprint">
+$contextObject.content$
+	</pre>
+>>
+
+head() ::= <<
+	<script type="text/javascript" src="/static/js/prettify/prettify.js"></script>
+	<script type="text/javascript" src="/static/js/paste.js"></script>
+	<link rel="stylesheet" type="text/css" href="/static/js/prettify/prettify.css" />
+	<script type="text/javascript">
+		\$(document).ready(function() {
+			
+		});
+	</script>
+>>

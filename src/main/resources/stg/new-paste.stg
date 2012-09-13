@@ -1,0 +1,29 @@
+import "base.stg"
+
+head() ::= <<
+	<script type="text/javascript" src="/static/js/jquery.watermark.min.js"></script>
+	<script type="text/javascript" src="/static/js/new-paste.js"></script>
+>>
+
+content(contextObject) ::= <<
+<form id="paste-form" name="paste-form" action="/new" method="post">
+	
+	<textarea name="content"></textarea>
+	<input type="checkbox" name="private" value="private" />Private
+	
+	<select name="highlight">
+		<option value="java">Java</option>
+		<option value="shell">Shell</option>
+		<option value="perl">Perl</option>
+		<option value="python">Python</option>
+	</select>
+	
+	<br/>
+	
+	Title <input type="text" name="title" />
+	
+	Email <input type="text" name="email" />
+	
+	<input type="submit" value="Paste &raquo;" />
+</form>
+>>

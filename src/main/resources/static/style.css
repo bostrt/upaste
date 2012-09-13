@@ -1,0 +1,69 @@
+body {
+	overflow-x: hidden;
+	font-size: 12pt;
+	font-family: ubuntu;	
+}
+
+body > table {
+	width: 100%;
+	height: 100%;
+}
+
+td#title-cell {
+
+}
+
+#title-text {
+    font-size: 56pt;
+    font-style: italic;
+    color: #BBBBBB;
+}
+
+td#title-cell>hr {
+	border: 2px solid #AAAAAA;
+	border-radius: 5px;
+}
+
+td.in-content-row {
+	height: 100%;
+}
+
+td.in-content-row>div {
+	height: 100%;
+}
+
+td#recent-pastes-cell {
+	width: 200px;
+	max-width: 200px;
+	overflow-x: hidden;	
+}
+
+td#content-cell {
+	
+}
+
+#content-container {
+	word-wrap: break-word;
+}
+
+#content-container>pre {
+	width: 50%;
+}
+
+#content-container>#paste-form>textarea {
+	width: 100%;
+	height: 90%;
+}
+
+#content-container>#paste-form {
+	width: 100%;
+	height: 100%;
+}
+
+.nice-time-little {
+	font-size: 8pt;
+	color: #555555;
+	padding: 0px;
+	position: relative;
+	top: -8px;
+}

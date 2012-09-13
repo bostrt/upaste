@@ -1,0 +1,23 @@
+home() ::= <<
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="/static/style.css"/>
+	<title>LanBin</title>
+</head>
+
+<body>
+	<div id="recent-pastes">
+		$recentPastes()$
+	</div>
+	<div id="paste-textarea-container">
+		<textarea></textarea>
+		<span>Submit</span>
+	</div>
+</body>
+
+</html>
+>>
+
+recentPastes() ::= <<
+	
+>>

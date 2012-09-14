@@ -44,11 +44,11 @@ td#content-cell {
 }
 
 #content-container {
-	word-wrap: break-word;
 }
 
 #content-container>pre {
-	width: 50%;
+	width: 66%;
+	overflow-x: auto;
 }
 
 #content-container>#paste-form>textarea {

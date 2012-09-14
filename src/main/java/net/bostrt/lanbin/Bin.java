@@ -21,6 +21,7 @@ import spark.Spark;
 public class Bin
 {
 	public static final String PERSISTENCE_UNIT = "lanbin";
+	public static final int LINK_ID_LENGTH = 8; 
 	
 	public Bin() throws SQLException
 	{		
@@ -53,16 +54,23 @@ public class Bin
 					String title = request.queryParams("title");
 					String email = request.queryParams("email");
 					String content = request.queryParams("content");
-	
+
+					if(title.trim().isEmpty()){
+						// Default title
+						title = "Untitled";
+					}
+					
 					Paste p = new Paste();
 					p.setPrivate(isPrivate);
 					p.setHighlightType(highlightType);
 					p.setTitle(title);
 					p.setEmail(email);
 					p.setContent(content);
+					// TODO: Need another method of generating ID's. They need to be shorter.
 					p.setUuid(UUID.randomUUID().toString());
 					
 					PasteDAO dao = new PasteDAO();
+					
 					dao.insert(p);
 					
 					response.redirect("/paste/"+p.getUuid());

@@ -18,6 +18,6 @@ jQuery.fn.selectText = function(){
 $(document).ready(function() {
 	prettyPrint();
 	$("pre.prettyprint").dblclick(function() {
-		this.selectText();
+		$(this).selectText();
 	});
 })

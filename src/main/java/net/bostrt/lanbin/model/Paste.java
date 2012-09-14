@@ -115,18 +115,18 @@ public class Paste extends BaseModel {
 			double hourDiff = minDiff / 60;
 			return (int)hourDiff + " hour" + ((int)hourDiff == 1 ? "" : "s");
 		}
-		
+
 		// Was this paste before yesterday?
 		if(isBeforeYesterday(this.addedOn)) {
-			format = new SimpleDateFormat("YYYY-MM-dd");
+			format = new SimpleDateFormat("yyyy-MM-dd");
 			return format.format(this.addedOn);
 		}
-		
+
 		// Was this paste on yesterday?
 		if(isYesterday(this.addedOn)) {
 			return "Yesterday";
 		}
-		
+
 		format = new SimpleDateFormat("yyyy-M-d");
 		return format.format(this.addedOn);
 	}

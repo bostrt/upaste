@@ -3,6 +3,7 @@ import "base.stg"
 content(contextObject) ::= <<
 	$contextObject.title$<br/>
 	$contextObject.uuid$<br/>
+	$contextObject.highlightType$<br/>
 	<pre class="prettyprint">
 $contextObject.safeContent$
 	</pre>

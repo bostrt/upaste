@@ -16,7 +16,6 @@ td#title-cell {
 #title-text>a {
 	text-decoration: none;
     font-size: 56pt;
-    font-style: italic;
     color: #BBBBBB;
 }
 
@@ -33,10 +32,33 @@ td.in-content-row>div {
 	height: 100%;
 }
 
+#recent-pastes-container {
+}
+
+#recent-pastes-title {
+	padding-bottom: 4px;
+	padding-left: 4px;
+    color: #888888;
+}
+
 td#recent-pastes-cell {
 	width: 200px;
 	max-width: 200px;
 	overflow-x: hidden;	
+}
+
+.recent-paste-link {
+	padding-left: 4px;
+	cursor: pointer;
+}
+
+.recent-paste-link.hovered {
+	background: #EEEEEE;
+}
+
+.recent-paste-link-container>a{
+	text-decoration: none;
+	color: #333333;
 }
 
 td#content-cell {
@@ -44,6 +66,7 @@ td#content-cell {
 }
 
 #content-container {
+	padding-left: 20px;
 }
 
 #content-container>pre {
@@ -54,6 +77,7 @@ td#content-cell {
 #content-container>#paste-form>textarea {
 	width: 100%;
 	height: 90%;
+	white-space: nowrap;
 }
 
 #content-container>#paste-form {
@@ -62,9 +86,10 @@ td#content-cell {
 }
 
 .nice-time-little {
+	text-decoration: none;
 	font-size: 8pt;
 	color: #555555;
 	padding: 0px;
 	position: relative;
-	top: -8px;
+	top: -6px;
 }

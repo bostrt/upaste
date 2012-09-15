@@ -91,6 +91,11 @@ public class Paste extends BaseModel {
 		return StringEscapeUtils.escapeHtml(this.content);
 	}
 	
+	public String getReadableAddedOn() {
+		SimpleDateFormat format = new SimpleDateFormat("MMM d, yyyy h:m a");
+		return format.format(this.addedOn);
+	}
+	
 	/**
 	 * Get how long ago this paste was added in nice terms like 
 	 * "1 min ago", "5 mins ago", "1 hour ago", "Yesterday"

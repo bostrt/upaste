@@ -1,9 +1,9 @@
 import "base.stg"
 
 content(contextObject) ::= <<
-	$contextObject.title$<br/>
-	$contextObject.uuid$<br/>
-	$contextObject.highlightType$<br/>
+	<b>Title:</b> $contextObject.title$ <br/>
+	<b>Date Pasted:</b> $contextObject.readableAddedOn$ <br/>
+	<b>Type:</b> $contextObject.highlightType$
 	<pre class="prettyprint">
 $contextObject.safeContent$
 	</pre>

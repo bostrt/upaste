@@ -22,8 +22,8 @@ public class UPaste
 {
 	public static final int LINK_ID_LENGTH = 8; 
 	
-	public UPaste() throws SQLException
-	{		
+	public void init() throws SQLException
+	{
 		Spark.setStaticResourceBase("static");
 		Spark.setStaticVirtualDirectory("/static");
 
@@ -106,7 +106,8 @@ public class UPaste
 	 */
 	public static void main(String[] args) {
 		try {
-			UPaste b = new UPaste();
+			UPaste p = new UPaste();
+			p.init();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

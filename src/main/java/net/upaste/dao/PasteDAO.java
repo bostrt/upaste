@@ -1,10 +1,10 @@
-package net.bostrt.lanbin.dao;
+package net.upaste.dao;
 
 import java.util.List;
 
 import javax.persistence.TypedQuery;
 
-import net.bostrt.lanbin.model.Paste;
+import net.upaste.model.Paste;
 
 public class PasteDAO extends BaseDAO<Paste>
 {

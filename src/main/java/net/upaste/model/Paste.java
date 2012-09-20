@@ -1,4 +1,4 @@
-package net.bostrt.lanbin.model;
+package net.upaste.model;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;

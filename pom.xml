@@ -1,10 +1,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>net.bostrt</groupId>
-	<artifactId>lanbin</artifactId>
+	<groupId>net.upaste</groupId>
+	<artifactId>upaste-website</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>LanBin</name>
+	<name>uPaste</name>
 	<description>Local Area Network equivalent to pastebin.com</description>
 
 	<dependencies>
@@ -71,7 +71,7 @@
 			     </descriptorRefs>
 			     <archive>
 			         <manifest>
-			             <mainClass>net.bostrt.lanbin.Bin</mainClass>
+			             <mainClass>net.upaste.UPaste</mainClass>
 			         </manifest>
 			     </archive>
 			    </configuration>

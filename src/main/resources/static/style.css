@@ -16,7 +16,13 @@ td#title-cell {
 #title-text>a {
 	text-decoration: none;
     font-size: 56pt;
-    color: #BBBBBB;
+    color: #777777;
+}
+
+#alpha {
+	text-decoration: none;
+	font-size: 12pt;
+	color: #777777;
 }
 
 td#title-cell>hr {

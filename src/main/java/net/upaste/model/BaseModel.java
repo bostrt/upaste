@@ -1,4 +1,4 @@
-package net.bostrt.lanbin.model;
+package net.upaste.model;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

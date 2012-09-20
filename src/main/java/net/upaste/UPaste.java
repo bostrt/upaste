@@ -1,4 +1,4 @@
-package net.bostrt.lanbin;
+package net.upaste;
 
 import static spark.Spark.get;
 import static spark.Spark.post;
@@ -7,8 +7,8 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.UUID;
 
-import net.bostrt.lanbin.dao.PasteDAO;
-import net.bostrt.lanbin.model.Paste;
+import net.upaste.dao.PasteDAO;
+import net.upaste.model.Paste;
 
 import org.stringtemplate.v4.ST;
 import org.stringtemplate.v4.STGroupFile;
@@ -18,12 +18,11 @@ import spark.Response;
 import spark.Route;
 import spark.Spark;
 
-public class Bin
+public class UPaste
 {
-	public static final String PERSISTENCE_UNIT = "lanbin";
 	public static final int LINK_ID_LENGTH = 8; 
 	
-	public Bin() throws SQLException
+	public UPaste() throws SQLException
 	{		
 		Spark.setStaticResourceBase("static");
 		Spark.setStaticVirtualDirectory("/static");
@@ -107,7 +106,7 @@ public class Bin
 	 */
 	public static void main(String[] args) {
 		try {
-			Bin b = new Bin();
+			UPaste b = new UPaste();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

@@ -1,4 +1,4 @@
-package net.bostrt.lanbin.dao;
+package net.upaste.dao;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -6,8 +6,8 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
-import net.bostrt.lanbin.EMF;
-import net.bostrt.lanbin.model.BaseModel;
+import net.upaste.EMF;
+import net.upaste.model.BaseModel;
 
 public abstract class BaseDAO<ENTITY extends BaseModel> {
 	protected EntityManagerFactory emf = EMF.getInstance();

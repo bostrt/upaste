@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context
+docBase="/uPaste"
+reloadable="true"
+>
+<!-- <Resource 
+  name="ds/uPasteDS" 
+  auth="Container" 
+  type="javax.sql.DataSource" 
+  maxActive="100" 
+  maxIdle="30" 
+  maxWait="10000"
+  username="_____" 
+  password="_______" 
+  driverClassName="com.mysql.jdbc.Driver" 
+  url="jdbc:mysql://localhost:3306/uPaste"
+  />-->
+</Context>

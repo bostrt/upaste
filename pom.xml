@@ -23,14 +23,19 @@
 			<version>2.2.8</version>
 		</dependency>
 		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.6</version>
+		</dependency>
+		<dependency>
 			<groupId>org.antlr</groupId>
 			<artifactId>stringtemplate</artifactId>
 			<version>4.0.2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.eclipse.persistence</groupId>
-			<artifactId>javax.persistence</artifactId>
-			<version>2.0.3</version>
+			<artifactId>org.eclipse.persistence.jpa	</artifactId>
+			<version>2.4.0</version>
 		</dependency>
 		<dependency>
 			<groupId>commons-lang</groupId>
@@ -60,31 +65,6 @@
 					<target>1.6</target>
 				</configuration>
 			</plugin>
-			<!--<plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-jar-plugin</artifactId> 
-				<version>2.2</version> </plugin> -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-assembly-plugin</artifactId>
-				<version>2.2</version>
-				<configuration>
-					<descriptorRefs>
-						<descriptorRef>jar-with-dependencies</descriptorRef>
-					</descriptorRefs>
-					<archive>
-						<manifest>
-							<mainClass>net.upaste.UPaste</mainClass>
-						</manifest>
-					</archive>
-				</configuration>
-				<executions>
-					<execution>
-						<phase>package</phase>
-						<goals>
-							<goal>single</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
@@ -98,12 +78,56 @@
 					</execution>
 				</executions>
 				<configuration>
+					<webResources>
+						<resource>
+							<directory>src/main/resources/static</directory>
+							<targetPath>static</targetPath>
+						</resource>
+					</webResources>
 					<webappDirectory>${webappDirectory}</webappDirectory>
 				</configuration>
 			</plugin>
 		</plugins>
 		<finalName>uPaste</finalName>
 	</build>
+
+	<profiles>
+		<profile>
+			<activation>
+				<property>
+					<name>public</name>
+					<value>true</value>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-assembly-plugin</artifactId>
+						<version>2.2</version>
+						<configuration>
+							<descriptorRefs>
+								<descriptorRef>jar-with-dependencies</descriptorRef>
+							</descriptorRefs>
+							<archive>
+								<manifest>
+									<mainClass>net.upaste.UPaste</mainClass>
+								</manifest>
+							</archive>
+						</configuration>
+						<executions>
+							<execution>
+								<phase>package</phase>
+								<goals>
+									<goal>single</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 
 
 </project>

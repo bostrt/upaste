@@ -20,7 +20,9 @@ import spark.Spark;
 
 public class UPaste
 {
-	public static final int LINK_ID_LENGTH = 8; 
+	public static final int LINK_ID_LENGTH = 8;
+	public static final int RECENT_PASTE_LIMIT_SMALL = 10;
+	public static final int RECENT_PASTE_LIMIT_BIG = 30;
 	
 	public void init() throws SQLException
 	{
@@ -35,7 +37,7 @@ public class UPaste
 				ST baseST = stg.getInstanceOf("base");
 
 				PasteDAO dao = new PasteDAO();
-				List<Paste> ps = dao.getRecentPastes();
+				List<Paste> ps = dao.getRecentPastes(RECENT_PASTE_LIMIT_SMALL);
 
 				baseST.add("recentList", ps);
 				
@@ -89,7 +91,7 @@ public class UPaste
 				STGroupFile stg = new STGroupFile("stg/paste.stg", '$', '$');
 				ST baseST = stg.getInstanceOf("base");
 
-				List<Paste> ps = dao.getRecentPastes();
+				List<Paste> ps = dao.getRecentPastes(RECENT_PASTE_LIMIT_SMALL);
 				baseST.add("recentList", ps);
 				
 				String uuid = request.params("uuid");
@@ -97,6 +99,17 @@ public class UPaste
 				baseST.add("contextObject", p);
 				
 				return baseST.render();
+			}
+		});
+		
+		// Show a lot of recent pastes
+		get(new Route("/recent") {
+			@Override
+			public Object handle(Request request, Response response) {
+				PasteDAO dao = new PasteDAO();
+				//List<Paste> ps = dao.getRecentPastes(RECENT_PASTE_LIMIT_BIG);
+
+				return null;
 			}
 		});
 	}

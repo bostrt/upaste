@@ -12,11 +12,11 @@ public class PasteDAO extends BaseDAO<Paste>
 	 * Get the 10 latest pastes.
 	 * @return
 	 */
-	public List<Paste> getRecentPastes()
+	public List<Paste> getRecentPastes(int limit)
 	{
 		try {
 			TypedQuery<Paste> query = em.createNamedQuery("RecentPastes", Paste.class);
-			query.setMaxResults(10);
+			query.setMaxResults(limit);
 			return query.getResultList();
 		} catch(Exception e) {
 			e.printStackTrace();

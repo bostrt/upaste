@@ -12,7 +12,14 @@ $baseHead()$
 			<hr />
 		</td>
 	</tr>
-	
+$contentRow(recentList, contextObject)$	
+</table>
+
+</body>
+</html>
+>>
+
+contentRow(recentList, contextObject) ::= <<
 	<tr>
 		<td id="recent-pastes-cell" class="in-content-row">
 			<div id="recent-pastes-container">
@@ -25,10 +32,6 @@ $content(contextObject)$
 			</div>
 		</td>
 	</tr>
-</table>
-
-</body>
-</html>
 >>
 
 content(contextObject) ::= <<

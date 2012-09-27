@@ -51,6 +51,7 @@ td#recent-pastes-cell {
 	width: 200px;
 	max-width: 200px;
 	overflow-x: hidden;	
+	min-width: 200px;
 }
 
 .recent-paste-link {
@@ -83,7 +84,6 @@ td#content-cell {
 #content-container>#paste-form>textarea {
 	width: 100%;
 	height: 90%;
-	white-space: nowrap;
 }
 
 #content-container>#paste-form {

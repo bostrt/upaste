@@ -4,6 +4,7 @@
   version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
   
   <persistence-unit name="upaste" transaction-type="RESOURCE_LOCAL">
+  	<!-- <non-jta-data-source>java:comp/env/ds/uPasteDS</non-jta-data-source> -->
     <class>net.upaste.model.Paste</class>
     <properties>
       <property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbc.JDBCDriver" />
@@ -18,8 +19,7 @@
 	  
       <!-- EclipseLink should create the database schema automatically -->
       <property name="eclipselink.ddl-generation" value="create-tables" />
-      <property name="eclipselink.ddl-generation.output-mode"
-        value="database" />
+      <property name="eclipselink.ddl-generation.output-mode" value="database" />
     </properties>
 
   </persistence-unit>

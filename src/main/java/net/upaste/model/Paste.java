@@ -17,8 +17,7 @@ import org.apache.commons.lang.StringEscapeUtils;
 @Entity
 @Table(name = "Paste")
 @NamedQueries({
-	@NamedQuery(name = "RecentPastes", query = "SELECT p FROM Paste p WHERE p.isPrivate = false ORDER BY p.addedOn DESC"),
-	@NamedQuery(name = "ByUUID", query = "SELECT p FROM Paste p WHERE p.uuid = :uuid"),
+	@NamedQuery(name = "RecentPastes", query = "SELECT p FROM Paste p WHERE p.isPrivate = false ORDER BY p.addedOn DESC")
 })
 public class Paste extends BaseModel {
 
@@ -30,9 +29,6 @@ public class Paste extends BaseModel {
 	
 	@Column(name = "Private")
 	private boolean isPrivate = false;
-	
-	@Column(name = "UUID")
-	private String uuid;
 	
 	@Column(name = "AddedOn")
 	@Temporal(TemporalType.TIMESTAMP)
@@ -61,12 +57,6 @@ public class Paste extends BaseModel {
 	}
 	public void setPrivate(boolean isPrivate) {
 		this.isPrivate = isPrivate;
-	}
-	public String getUuid() {
-		return uuid;
-	}
-	public void setUuid(String uuid) {
-		this.uuid = uuid;
 	}
 	public Date getAddedOn() {
 		return addedOn;

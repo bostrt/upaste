@@ -3,11 +3,25 @@ package net.upaste.dao;
 import java.util.List;
 
 import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 
 import net.upaste.model.Paste;
 
 public class PasteDAO extends BaseDAO<Paste>
 {
+	public Paste getByID(long ID) {
+		CriteriaBuilder builder = em.getCriteriaBuilder();
+		CriteriaQuery<Paste> query = builder.createQuery(Paste.class);
+		Root baseModel = query.from(Paste.class);
+
+		query.where(builder.equal(baseModel.get("ID"), ID));
+		
+		return em.createQuery(query).getSingleResult();
+	}
+
+	
 	/**
 	 * Get the 10 latest pastes.
 	 * @return
@@ -18,22 +32,6 @@ public class PasteDAO extends BaseDAO<Paste>
 			TypedQuery<Paste> query = em.createNamedQuery("RecentPastes", Paste.class);
 			query.setMaxResults(limit);
 			return query.getResultList();
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-	
-	/**
-	 * Get a {@link Paste} by the UUID
-	 */
-	public Paste getByUUID(String uuid)
-	{
-		try {
-			TypedQuery<Paste> query = em.createNamedQuery("ByUUID", Paste.class);
-			query.setParameter("uuid", uuid);
-			
-			return query.getSingleResult();
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

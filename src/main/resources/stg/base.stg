@@ -53,7 +53,7 @@ recentPastes(recentList) ::= <<
 >>
 
 recentPaste(paste) ::= <<
-	<div class="recent-paste-link" href="/paste/$paste.uuid$">
+	<div class="recent-paste-link" href="/paste/$paste.ID$">
 		$paste.title$
 		<br/>
 		<span class="nice-time-little">$paste.niceTime$</span>

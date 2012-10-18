@@ -64,17 +64,15 @@ public class UPaste
 					Paste p = new Paste();
 					p.setPrivate(isPrivate);
 					p.setHighlightType(highlightType);
-					p.setTitle(title);
-					p.setEmail(email);
+					p.setTitle(title.trim());
+					p.setEmail(email.trim());
 					p.setContent(content);
-					// TODO: Need another method of generating ID's. They need to be shorter.
-					p.setUuid(UUID.randomUUID().toString());
 					
 					PasteDAO dao = new PasteDAO();
 					
 					dao.insert(p);
 					
-					response.redirect("/paste/"+p.getUuid());
+					response.redirect("/paste/"+p.getID());
 				} catch(Exception e) {
 					e.printStackTrace();
 				}
@@ -84,7 +82,7 @@ public class UPaste
 		});
 		
 		// Show a paste
-		get(new Route("/paste/:uuid") {
+		get(new Route("/paste/:id") {
 			@Override
 			public Object handle(Request request, Response response) {
 				PasteDAO dao = new PasteDAO();
@@ -94,8 +92,14 @@ public class UPaste
 				List<Paste> ps = dao.getRecentPastes(RECENT_PASTE_LIMIT_SMALL);
 				baseST.add("recentList", ps);
 				
-				String uuid = request.params("uuid");
-				Paste p = dao.getByUUID(uuid);
+				String idStr = request.params("id");
+				Long id = null;
+				try {
+					id = Long.valueOf(idStr);
+				} catch(NumberFormatException e) {
+					response.redirect("/");
+				}
+				Paste p = dao.getByID(id);
 				baseST.add("contextObject", p);
 				
 				return baseST.render();

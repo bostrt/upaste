@@ -9,6 +9,7 @@ import java.util.UUID;
 
 import net.upaste.dao.PasteDAO;
 import net.upaste.model.Paste;
+import net.upaste.view.impl.PasteView;
 
 import org.stringtemplate.v4.ST;
 import org.stringtemplate.v4.STGroupFile;
@@ -28,7 +29,17 @@ public class UPaste
 	{
 		Spark.setStaticResourceBase("static");
 		Spark.setStaticVirtualDirectory("/static");
+		Spark.setPort(4566);
 
+		get(new Route("/new-view") {
+
+			@Override
+			public Object handle(Request request, Response response) {
+				PasteView v = new PasteView(null);
+				return v.render();
+			}
+		});
+		
 		// Default route. Display blank form
 		get(new Route("/") {
 			@Override

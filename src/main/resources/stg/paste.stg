@@ -1,16 +1,14 @@
-import "base.stg"
-
-content(contextObject) ::= <<
-	<b>Title:</b> $contextObject.title$ <br/>
-	<b>Date Pasted:</b> $contextObject.readableAddedOn$ <br/>
-	<b>Type:</b> $contextObject.highlightType$
-	<pre class="prettyprint">
-$contextObject.safeContent$
-	</pre>
->>
-
 head() ::= <<
 	<script type="text/javascript" src="/static/js/prettify/prettify.js"></script>
 	<script type="text/javascript" src="/static/js/paste.js"></script>
 	<link rel="stylesheet" type="text/css" href="/static/js/prettify/prettify.css" />
+>>
+
+body(paste) ::= <<
+    <b>Title:</b> $paste.title$ <br/>
+    <b>Date Pasted:</b> $paste.readableAddedOn$ <br/>
+    <b>Type:</b> $paste.highlightType$
+    <pre class="prettyprint">
+$paste.safeContent$
+    </pre>
 >>

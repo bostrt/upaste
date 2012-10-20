@@ -1,11 +1,9 @@
-import "base.stg"
-
 head() ::= <<
 	<script type="text/javascript" src="/static/js/jquery.watermark.min.js"></script>
 	<script type="text/javascript" src="/static/js/new-paste.js"></script>
 >>
 
-content(contextObject) ::= <<
+body() ::= <<
 <form id="paste-form" name="paste-form" action="/new" method="post">
 	
 	<textarea name="content"></textarea>

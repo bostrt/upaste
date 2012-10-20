@@ -1,18 +1,23 @@
 package net.upaste.view;
 
+import net.upaste.view.impl.NullLeaf;
+
 /**
  * Composite
  * @author Robert Bost <bostrt@gmail.com>
  */
-public abstract class CompositeView<CHILD extends View> extends View {
+public abstract class CompositeView extends View {
 
-	private CHILD child;
+	private View child;
 	
-	public CompositeView(CHILD child) {
+	public CompositeView(View child) {
 		this.child = child;
 	}
 	
-	public CHILD getChild() {
+	public View getChild() {
+		if(this.child == null) {
+			this.child = new NullLeaf();
+		}
 		return this.child;
 	}
 }

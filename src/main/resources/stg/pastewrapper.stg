@@ -1,0 +1,33 @@
+head(childHead) ::= <<
+$childHead$
+>>
+
+body(recentList, content) ::= <<
+	<tr>
+		<td id="recent-pastes-cell" class="in-content-row">
+			<div id="recent-pastes-container">
+				$recentPastes(recentList)$
+			</div>		
+		</td>
+		<td id="content-cell" class="in-content-row">
+			<div id="content-container">
+$content$
+			</div>
+		</td>
+	</tr>
+>>
+
+recentPastes(recentList) ::= <<
+	<div id="recent-pastes-title">
+		Recent Pastes
+	</div>
+	$recentList:{ paste | $recentPaste(paste)$ }$
+>>
+
+recentPaste(paste) ::= <<
+	<div class="recent-paste-link" href="/paste/$paste.ID$">
+		$paste.title$
+		<br/>
+		<span class="nice-time-little">$paste.niceTime$</span>
+	</div>
+>>

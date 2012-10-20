@@ -1,7 +1,11 @@
-basebase(head, body) ::= <<
+base(head, body) ::= <<
 <html>
 <head>
-$head$
+	<link rel="stylesheet" type="text/css" href="/static/style.css"/>
+	<script type="text/javascript" src="/static/js/jquery-1.8.1.min.js"></script>
+	<script type="text/javascript" src="/static/js/base.js"></script>
+	<title>uPaste | Alpha</title>
+	$head$
 </head>
 
 <body>
@@ -14,7 +18,7 @@ $head$
     </tr>
     <tr>
         <td>
-        $body$
+$body$
         </td>
     </tr>
 </table>

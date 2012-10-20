@@ -17,7 +17,8 @@ import org.apache.commons.lang.StringEscapeUtils;
 @Entity
 @Table(name = "Paste")
 @NamedQueries({
-	@NamedQuery(name = "RecentPastes", query = "SELECT p FROM Paste p WHERE p.isPrivate = false ORDER BY p.addedOn DESC")
+	@NamedQuery(name = "RecentPastes", query = "SELECT p FROM Paste p WHERE p.isPrivate = false ORDER BY p.addedOn DESC"),
+	@NamedQuery(name = "LimitedPastes", query = "SELECT p FROM Paste p WHERE p.isPrivate = false ORDER BY p.addedOn DESC")
 })
 public class Paste extends BaseModel {
 
@@ -205,5 +206,9 @@ public class Paste extends BaseModel {
 		}
 		
 		return false;
+	}
+	
+	public boolean isAutoHighlight() {
+		return this.highlightType.equals("auto");
 	}
 }

@@ -37,4 +37,17 @@ public class PasteDAO extends BaseDAO<Paste>
 		}
 		return null;
 	}
+	
+	public List<Paste> getPastes(int startPosition) {
+		try {
+			TypedQuery<Paste> query = em.createNamedQuery("LimitedPastes", Paste.class);
+			query.setFirstResult(startPosition);
+			query.setMaxResults(20);
+			return query.getResultList();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
 }

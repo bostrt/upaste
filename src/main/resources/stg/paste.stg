@@ -7,8 +7,40 @@ head() ::= <<
 body(paste) ::= <<
     <b>Title:</b> $paste.title$ <br/>
     <b>Date Pasted:</b> $paste.readableAddedOn$ <br/>
-    <b>Type:</b> $paste.highlightType$
-    <pre class="prettyprint">
+
+    <input name="highlight" type="hidden" highlightType="$paste.highlightType$"/>
+    
+    <b>Type:</b>
+    <select name="highlight">
+        <option value="auto">Auto</option>
+        <option value="bash">Bash</option>
+        <option value="c">C</option>
+        <option value="c++">C++</option>
+        <option value="coffee">Coffee</option>
+        <option value="css">CSS</option>
+        <option value="go">Go</option>
+        <option value="html">HTML</option>
+        <option value="java">Java</option>
+        <option value="javascript">JavaScript</option>
+        <option value="lisp">Lisp</option>        
+        <option value="perl">Perl</option>
+        <option value="php">PHP</option>
+        <option value="python">Python</option>
+        <option value="ruby">Ruby</option>
+        <option value="scala">Scala</option>
+        <option value="shell">Shell</option>
+        <option value="sql">SQL</option>
+        <option value="wiki">Wiki</option>
+        <option value="xhtml">XHTML</option>
+        <option value="xsl">XSL</option>
+        <option value="yaml">YAML</option>
+    </select>
+    
+    $if(paste.autoHighlight)$
+        <pre class="prettyprint">
+    $else$
+        <pre class="prettyprint lang-$paste.highlightType$">
+    $endif$
 $paste.safeContent$
     </pre>
 >>

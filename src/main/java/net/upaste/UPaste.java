@@ -8,13 +8,10 @@ import java.util.List;
 
 import net.upaste.dao.PasteDAO;
 import net.upaste.model.Paste;
+import net.upaste.view.impl.BrowsePastes;
 import net.upaste.view.impl.NewPasteView;
 import net.upaste.view.impl.PasteView;
 import net.upaste.view.impl.PasteWrapperView;
-
-import org.stringtemplate.v4.ST;
-import org.stringtemplate.v4.STGroupFile;
-
 import spark.Request;
 import spark.Response;
 import spark.Route;
@@ -100,13 +97,36 @@ public class UPaste
 					id = Long.valueOf(idStr);
 				} catch(NumberFormatException e) {
 					response.redirect("/");
+					return "";
 				}
+				
 				Paste p = dao.getByID(id);
 
 				// Build view
 				PasteView view = new PasteView(p);
 				PasteWrapperView wrapper = new PasteWrapperView(view, ps);
 				return wrapper.render();
+			}
+		});
+		
+		// Browse pastes
+		get(new Route("/browse/:start") {
+			@Override
+			public Object handle(Request request, Response response) {
+				String startStr = request.params("start");
+				Integer start = null;
+				try {
+					start  = Integer.valueOf(startStr);
+				} catch(NumberFormatException e) {
+					response.redirect("/");
+					return "";
+				}
+				
+				PasteDAO dao = new PasteDAO();
+				List<Paste> pastes = dao.getPastes(start);
+				
+				BrowsePastes view = new BrowsePastes(pastes);
+				return view.render();
 			}
 		});
 	}

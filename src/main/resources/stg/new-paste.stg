@@ -10,6 +10,7 @@ body() ::= <<
 	<input type="checkbox" name="private" value="private" />Private
 
    	<select name="highlight">
+        <option value="auto">Auto</option>   	
         <option value="bash">Bash</option>
         <option value="c">C</option>
         <option value="c++">C++</option>

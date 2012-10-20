@@ -22,12 +22,17 @@ recentPastes(recentList) ::= <<
 		Recent Pastes
 	</div>
 	$recentList:{ paste | $recentPaste(paste)$ }$
+	<div id="recent-pastes-footer">
+	<a href="/browse">
+	More...
+	</a>
+	</div>
 >>
 
 recentPaste(paste) ::= <<
 	<div class="recent-paste-link" href="/paste/$paste.ID$">
 		$paste.title$
 		<br/>
-		<span class="nice-time-little">$paste.niceTime$</span>
+        <span class="nice-time-little">$paste.niceTime$</span>
 	</div>
 >>

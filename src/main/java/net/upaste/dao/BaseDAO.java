@@ -34,6 +34,12 @@ public abstract class BaseDAO<ENTITY extends BaseModel> {
 		em.getTransaction().commit();
 	}
 	
+	public void delete(ENTITY entity) {
+		em.getTransaction().begin();
+		em.remove(entity);
+		em.getTransaction().commit();
+	}
+	
 	public void update(ENTITY entity) {
 		try {
 			em.getTransaction().begin();

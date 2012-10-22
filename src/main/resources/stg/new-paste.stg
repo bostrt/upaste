@@ -7,7 +7,8 @@ body() ::= <<
 <form id="paste-form" name="paste-form" action="/new" method="post">
 	
 	<textarea name="content"></textarea>
-	<input type="checkbox" name="private" value="private" />Private
+	
+	<div id="meta">
 
    	<select name="highlight">
         <option value="auto">Auto</option>   	
@@ -34,12 +35,13 @@ body() ::= <<
         <option value="yaml">YAML</option>
   	</select>
             	
-	<br/>
-	
 	<input type="text" name="title" />
 	
 	<input type="text" name="email" />
 	
+    <input type="checkbox" name="private" value="private" />Private
+	
 	<input type="submit" value="Paste &raquo;" />
+	</div>
 </form>
 >>

@@ -12,12 +12,13 @@ base(head, body) ::= <<
 <table>
     <tr>
         <td colspan=2 id="title-cell">
-            <div id="title-text"><a href="/">uPaste<span id="alpha">alpha</span></a></div>
-            <hr />
+            <span id="title-text"><a href="/">
+                <span id="the-u">u</span>Paste<span id="alpha">alpha</span></a>
+            </span>
         </td>
     </tr>
     <tr>
-        <td>
+        <td id="body-cell">
 $body$
         </td>
     </tr>

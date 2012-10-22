@@ -18,15 +18,12 @@ $content$
 >>
 
 recentPastes(recentList) ::= <<
-	<div id="recent-pastes-title">
-		Recent Pastes
-	</div>
-	$recentList:{ paste | $recentPaste(paste)$ }$
-	<div id="recent-pastes-footer">
-	<a href="/browse">
-	More...
-	</a>
-	</div>
+    <fieldset>
+        <legend>
+            Recent
+        </legend>
+        $recentList:{ paste | $recentPaste(paste)$ }$
+    </fieldset>
 >>
 
 recentPaste(paste) ::= <<

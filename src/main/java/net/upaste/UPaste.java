@@ -28,13 +28,6 @@ public class UPaste
 		Spark.setStaticResourceBase("static");
 		Spark.setStaticVirtualDirectory("/static");
 
-		get(new Route("/new-view") {
-			@Override
-			public Object handle(Request request, Response response) {
-				return "";
-			}
-		});
-		
 		// Default route. Display blank form
 		get(new Route("/") {
 			@Override
@@ -61,6 +54,11 @@ public class UPaste
 					if(title.trim().isEmpty()){
 						// Default title
 						title = "Untitled";
+					}
+					
+					if(email.trim().isEmpty()) {
+						// Default name
+						email = "anonymous";
 					}
 					
 					Paste p = new Paste();
@@ -109,6 +107,18 @@ public class UPaste
 			}
 		});
 		
+		// Browse pastes
+		get(new Route("/browse") {
+			@Override
+			public Object handle(Request request, Response response) {
+				PasteDAO dao = new PasteDAO();
+				List<Paste> pastes = dao.getPastes(0);
+				
+				BrowsePastes view = new BrowsePastes(pastes);
+				return view.render();
+			}
+		});
+
 		// Browse pastes
 		get(new Route("/browse/:start") {
 			@Override

@@ -1,7 +1,8 @@
 body {
-	overflow-x: hidden;
+	overflow-x: auto;
 	font-size: 12pt;
-	font-family: ubuntu;	
+	font-family: ubuntu;
+	background: white;
 }
 
 body > table {
@@ -10,19 +11,31 @@ body > table {
 }
 
 td#title-cell {
+    vertical-align: top;
+}
 
+td#body-cell {
+	vertical-align: top;
+}
+
+#link-bar {
+    margin-left: 50px;	
 }
 
 #title-text>a {
 	text-decoration: none;
-    font-size: 56pt;
-    color: #777777;
+    font-size: 48pt;
+    color: black;
+}
+
+#title-text>a>#the-u {
+	color: #0052CE;
 }
 
 #alpha {
 	text-decoration: none;
 	font-size: 12pt;
-	color: #777777;
+	color: #CE5200;
 }
 
 td#title-cell>hr {
@@ -39,6 +52,8 @@ td.in-content-row>div {
 }
 
 #recent-pastes-container {
+	min-width: 220px;
+	max-width: 320px;
 }
 
 #recent-pastes-title {
@@ -57,16 +72,23 @@ td.in-content-row>div {
 }
 
 td#recent-pastes-cell {
-	width: 200px;
-	max-width: 200px;
-	overflow-x: hidden;	
-	min-width: 200px;
+    overflow: hidden;
+    width: 225px;
+    max-width: 325px;
 }
 
+#recent-pastes-container > fieldset {
+    background: white;
+    border: 1px solid black;
+    width: 200px;
+    min-width: 200px;
+    max-width: 300px;
+    overflow: hidden;
+}
 .recent-paste-link {
 	padding-left: 4px;
 	cursor: pointer;
-}
+}   
 
 .recent-paste-link.hovered {
 	background: #EEEEEE;
@@ -86,18 +108,26 @@ td#content-cell {
 }
 
 #content-container>pre {
-	width: 66%;
+	max-width: 80em;
 	overflow-x: auto;
+    background: white;
 }
 
 #content-container>#paste-form>textarea {
 	width: 100%;
 	height: 90%;
+	background: white;
+	margin-top: 9px;
+	border: 1px solid black;
 }
 
 #content-container>#paste-form {
 	width: 100%;
 	height: 100%;
+}
+
+#content-container>#paste-form>#meta {
+    padding-top: 10px;
 }
 
 .nice-time-little {
@@ -118,4 +148,8 @@ td#content-cell {
     height: 100px;
     width: 150px;
     overflow: hidden;	
+}
+
+#paste-title {
+	font-size: 26pt;
 }

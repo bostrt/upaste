@@ -5,10 +5,15 @@ head() ::= <<
 >>
 
 body(paste) ::= <<
-    <b>Title:</b> $paste.title$ <br/>
-    <b>Date Pasted:</b> $paste.readableAddedOn$ <br/>
+<div id="paste-view-conainer">
+    <div id="paste-title">$paste.title$</div>
+    $if(paste.owned)$
+    <i>Pasted by</i> $paste.email$ ($paste.readableAddedOn$)
+    $else$
+    <i>Pasted by</i> anonymous ($paste.readableAddedOn$)
+    $endif$
 
-    <input name="highlight" type="hidden" highlightType="$paste.highlightType$"/>
+    <!--<input name="highlight" type="hidden" highlightType="$paste.highlightType$"/>
     
     <b>Type:</b>
     <select name="highlight">
@@ -34,7 +39,7 @@ body(paste) ::= <<
         <option value="xhtml">XHTML</option>
         <option value="xsl">XSL</option>
         <option value="yaml">YAML</option>
-    </select>
+    </select>-->
     
     $if(paste.autoHighlight)$
         <pre class="prettyprint">
@@ -43,4 +48,5 @@ body(paste) ::= <<
     $endif$
 $paste.safeContent$
     </pre>
+</div>
 >>

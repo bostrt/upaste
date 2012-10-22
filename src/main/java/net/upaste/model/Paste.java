@@ -211,4 +211,8 @@ public class Paste extends BaseModel {
 	public boolean isAutoHighlight() {
 		return this.highlightType.equals("auto");
 	}
+	
+	public boolean isOwned() {
+		return this.email != null && !this.email.trim().isEmpty();
+	}
 }

@@ -1,11 +1,9 @@
 head() ::= <<
-	<script type="text/javascript" src="/static/js/prettify/prettify.js"></script>
 	<script type="text/javascript" src="/static/js/paste.js"></script>
-	<link rel="stylesheet" type="text/css" href="/static/js/prettify/prettify.css" />
 >>
 
 body(paste) ::= <<
-<div id="paste-view-conainer">
+<div id="paste-view-container">
     <div id="paste-title">$paste.title$</div>
     $if(paste.owned)$
     <i>Pasted by</i> $paste.email$ ($paste.readableAddedOn$)
@@ -40,13 +38,9 @@ body(paste) ::= <<
         <option value="xsl">XSL</option>
         <option value="yaml">YAML</option>
     </select>-->
-    
-    $if(paste.autoHighlight)$
-        <pre class="prettyprint">
-    $else$
-        <pre class="prettyprint lang-$paste.highlightType$">
-    $endif$
-$paste.safeContent$
-    </pre>
+
+    <textarea name="content">
+        $paste.safeContent$
+    </textarea>
 </div>
 >>

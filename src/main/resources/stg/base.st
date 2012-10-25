@@ -1,11 +1,11 @@
 base(head, body) ::= <<
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="/static/style.css"/>
 	<script type="text/javascript" src="/static/js/jquery-1.8.1.min.js"></script>
 	<script type="text/javascript" src="/static/js/base.js"></script>
 	<title>uPaste | Alpha</title>
 	$head$
+	<link rel="stylesheet" type="text/css" href="/static/style.css"/>
 </head>
 
 <body>

@@ -1,4 +1,7 @@
 head(childHead) ::= <<
+    <script src="/static/codemirror/lib/codemirror.js"></script>
+    <link rel="stylesheet" href="/static/codemirror/lib/codemirror.css">
+    <script src="/static/codemirror/mode/javascript/javascript.js"></script>
 $childHead$
 >>
 

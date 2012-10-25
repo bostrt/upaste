@@ -114,11 +114,27 @@ td#content-cell {
 }
 
 #content-container>#paste-form>textarea {
-	width: 100%;
-	height: 90%;
-	background: white;
-	margin-top: 9px;
-	border: 1px solid black;
+	
+}
+
+.CodeMirror {
+	background: #F5F5F5;
+    width: 100%;
+}
+
+.CodeMirror-lines {
+	background: #EEEEEE;
+}
+
+.CodeMirror-cursor {
+	color: #0052CE;
+	width: 2px;
+}
+
+.CodeMirror-scroll {
+    overflow-y: auto;
+    height: 90%;
+    max-height: 90%;    
 }
 
 #content-container>#paste-form {
@@ -152,4 +168,9 @@ td#content-cell {
 
 #paste-title {
 	font-size: 26pt;
+}
+
+#paste-view-container {
+    width: 100%;
+    height: 100%;
 }

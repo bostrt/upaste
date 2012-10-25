@@ -1,3 +1,5 @@
+var codeMirror;
+
 jQuery.fn.selectText = function(){
     var doc = document
         , element = this[0]
@@ -16,21 +18,20 @@ jQuery.fn.selectText = function(){
     }
 };
 $(document).ready(function() {
-	prettyPrint();
-	$("pre.prettyprint").dblclick(function() {
-		$(this).selectText();
-	});
+	var textArea = $("textarea[name=content]")[0];
 	
-	var highlightType = $("input[name=highlight]").attr("highlightType");
-	$("select[name=highlight]").attr('value', highlightType);
-	
-	$("select[name=highlight]").change(function(e) {
-		var code = $("pre.prettyprint");
-		code.removeClass();
-		code.addClass("prettyprint");
-		if(this.value != "auto") {
-			code.addClass("lang-" + this.value);
+	codeMirror = CodeMirror(function(elt) {
+		  textArea.parentNode.replaceChild(elt, textArea);
+		},
+		{
+			value: textArea.value,
+			lineNumbers: true,
+			readOnly: "nocursor", 
+			lineWrapping: true,
 		}
-		prettyPrint();
-	});
+		);
+
+	$("#paste-form").submit(function() {
+		codeMirror.save();
+	})
 })

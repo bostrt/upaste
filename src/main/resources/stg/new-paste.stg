@@ -6,7 +6,7 @@ head() ::= <<
 body() ::= <<
 <form id="paste-form" name="paste-form" action="/new" method="post">
 	
-	<textarea name="content"></textarea>
+    <textarea name="content"></textarea>
 	
 	<div id="meta">
 

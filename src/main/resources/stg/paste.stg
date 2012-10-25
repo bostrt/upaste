@@ -40,7 +40,7 @@ body(paste) ::= <<
     </select>-->
 
     <textarea name="content">
-        $paste.safeContent$
+        $paste.content$
     </textarea>
 </div>
 >>

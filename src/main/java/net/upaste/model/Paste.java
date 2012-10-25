@@ -77,11 +77,7 @@ public class Paste extends BaseModel {
 	public String getEmail() {
 		return this.email;
 	}
-	
-	public String getSafeContent() {
-		return StringEscapeUtils.escapeHtml(this.content);
-	}
-	
+
 	public String getReadableAddedOn() {
 		SimpleDateFormat format = new SimpleDateFormat("MMM d, yyyy h:m a");
 		return format.format(this.addedOn);

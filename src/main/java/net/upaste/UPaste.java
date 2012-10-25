@@ -12,6 +12,9 @@ import net.upaste.view.impl.BrowsePastes;
 import net.upaste.view.impl.NewPasteView;
 import net.upaste.view.impl.PasteView;
 import net.upaste.view.impl.PasteWrapperView;
+
+import org.apache.commons.lang.StringEscapeUtils;
+
 import spark.Request;
 import spark.Response;
 import spark.Route;
@@ -50,6 +53,11 @@ public class UPaste
 					String title = request.queryParams("title");
 					String email = request.queryParams("email");
 					String content = request.queryParams("content");
+					
+					content = StringEscapeUtils.escapeHtml(content);
+					title = StringEscapeUtils.escapeHtml(title);
+					email = StringEscapeUtils.escapeHtml(email);
+					highlightType = StringEscapeUtils.escapeHtml(highlightType);
 
 					if(title.trim().isEmpty()){
 						// Default title

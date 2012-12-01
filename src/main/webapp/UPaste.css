@@ -1,0 +1,10 @@
+/** Add css rules here for your application. */
+#title {
+	
+}
+
+#content {
+    position: absolute;
+    right: 0px;
+    left: 0px;
+}

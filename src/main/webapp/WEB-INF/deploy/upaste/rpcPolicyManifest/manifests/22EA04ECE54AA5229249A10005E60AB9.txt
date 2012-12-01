@@ -1,0 +1,2 @@
+serviceClass: net.upaste.client.PasteService
+path: D9056B55B03F950ADC80F985A646ECA2.gwt.rpc

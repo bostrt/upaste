@@ -1,0 +1,33 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+    .container {
+        width: 100%;
+    }
+    .content {
+        width: 100%;
+    }
+	</ui:style>
+	<g:VerticalPanel styleName="container">
+		<g:HorizontalPanel styleName="container">
+			<g:cell>
+				<g:HTMLPanel ui:field="recentPastes"></g:HTMLPanel>
+			</g:cell>
+			<g:cell>
+				<g:FormPanel ui:field="pasteForm" method="get">
+					<g:FlowPanel>
+						<g:TextArea ui:field="content" styleName="{style.content}"></g:TextArea>
+						<g:InlineLabel>Title</g:InlineLabel>
+						<g:TextBox ui:field="title"></g:TextBox>
+						<g:InlineLabel>Email</g:InlineLabel>
+						<g:TextBox ui:field="email"></g:TextBox>
+						<g:InlineLabel>Private</g:InlineLabel>
+						<g:CheckBox ui:field="isPrivate"></g:CheckBox>
+						<g:SubmitButton>Paste</g:SubmitButton>
+					</g:FlowPanel>
+				</g:FormPanel>
+			</g:cell>
+		</g:HorizontalPanel>
+	</g:VerticalPanel>
+</ui:UiBinder>

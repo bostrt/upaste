@@ -1,0 +1,13 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+		
+	</ui:style>
+	<g:FlowPanel>
+	   <g:Label ui:field="title"></g:Label>
+	   <g:Label ui:field="email"></g:Label>
+	   <g:Label ui:field="isPrivate"></g:Label>
+	   <g:TextArea enabled="false" ui:field="content"></g:TextArea>
+	</g:FlowPanel>
+</ui:UiBinder> 

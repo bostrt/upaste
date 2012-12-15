@@ -1,5 +1,7 @@
 package net.upaste.client.activity;
 
+import java.util.List;
+
 import net.upaste.client.ClientFactory;
 import net.upaste.client.PasteService;
 import net.upaste.client.PasteServiceAsync;
@@ -40,9 +42,24 @@ public class PasteActivity extends AbstractActivity
 			@Override
 			public void onSuccess(Paste result) {
 				initializeView(result);
+				// Prettify the content
+				prettyPrint();
+				
 			}
 		});
 		
+		service.getRecentPastes(10, new AsyncCallback<List<Paste>>() {
+			@Override
+			public void onSuccess(List<Paste> result) {
+				view.setRecentPasteList(result);
+			}
+			
+			@Override
+			public void onFailure(Throwable caught) {
+				GWT.log(caught.getMessage());
+			}
+		});
+
 		panel.setWidget(view);
 	}
 	
@@ -56,4 +73,8 @@ public class PasteActivity extends AbstractActivity
 			view.setTitle(paste.getTitle());
 		view.setIsPrivate(paste.isPrivate());
 	}
+	
+	private static native void prettyPrint()/*-{
+		$wnd.prettyPrint();
+	}-*/;
 }

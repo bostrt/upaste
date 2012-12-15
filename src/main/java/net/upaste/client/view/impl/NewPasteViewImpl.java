@@ -2,6 +2,7 @@ package net.upaste.client.view.impl;
 
 import java.util.List;
 
+import net.upaste.client.component.RecentPasteList;
 import net.upaste.client.view.NewPasteView;
 import net.upaste.shared.data.model.Paste;
 
@@ -14,9 +15,6 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FormPanel;
 import com.google.gwt.user.client.ui.FormPanel.SubmitCompleteHandler;
 import com.google.gwt.user.client.ui.FormPanel.SubmitHandler;
-import com.google.gwt.user.client.ui.HTML;
-import com.google.gwt.user.client.ui.HTMLPanel;
-import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.TextArea;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
@@ -30,7 +28,7 @@ public class NewPasteViewImpl extends Composite implements NewPasteView
 	}
 	
 	@UiField
-	HTMLPanel recentPastes;
+	RecentPasteList recentPasteList;
 	@UiField
 	FormPanel pasteForm;
 	@UiField
@@ -48,12 +46,9 @@ public class NewPasteViewImpl extends Composite implements NewPasteView
 	}
 
 	@Override
-	public void setRecentPastes(List<Paste> pastes)
+	public void setRecentPasteList(List<Paste> pastes)
 	{
-		for(Paste p : pastes) {
-			recentPastes.add(new Label(p.getTitle()));
-			recentPastes.add(new HTML("<br/>"));
-		}
+		this.recentPasteList.setRecentPasteList(pastes);
 	}
 	
 	@Override

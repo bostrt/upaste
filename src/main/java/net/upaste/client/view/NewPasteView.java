@@ -11,7 +11,7 @@ import com.google.gwt.user.client.ui.IsWidget;
 
 public interface NewPasteView extends IsWidget {
 	void setPresenter(Presenter presenter);
-	void setRecentPastes(List<Paste> pastes);
+	void setRecentPasteList(List<Paste> pastes);
 	String getContent();
 	String getTitle();
 	String getEmail();

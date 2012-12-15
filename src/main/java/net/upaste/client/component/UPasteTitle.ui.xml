@@ -2,28 +2,34 @@
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
 	xmlns:g="urn:import:com.google.gwt.user.client.ui">
 	<ui:style>
-		.title {
-		text-decoration: none;
-		color: black;
-		}
-		.title-u {
-		color: #0052CE;
-		font-size: 48pt;
-		}
-		.title-paste {
-		font-size: 48pt;
-		}
-		.title-alpha {
-		font-size: 12pt;
-		color: #CE5200;
-		vertical-align: bottom;
-		}
+	.panel {
+	   display: inline-table;
+	}
+	.panel:hover {
+	   cursor: pointer;
+	}
+	.title {
+	   text-decoration: none;
+	   color: black;
+	}
+	.title-u {
+	   color: #0052CE;
+	   font-size: 48pt;
+	}
+	.title-paste {
+	   font-size: 48pt;
+	}
+	.title-alpha {
+	   ont-size: 12pt;
+	   color: #CE5200;
+	   vertical-align: bottom;
+	}
 	</ui:style>
-	<g:HTMLPanel>
+	<g:FocusPanel styleName="{style.panel}" ui:field="panel">
 		<g:HorizontalPanel styleName="{style.title}">
 			<g:InlineLabel styleName="{style.title-u}">u</g:InlineLabel>
 			<g:InlineLabel styleName="{style.title-paste}">Paste</g:InlineLabel>
 			<g:InlineLabel styleName="{style.title-alpha}">alpha</g:InlineLabel>
 		</g:HorizontalPanel>
-	</g:HTMLPanel>
+	</g:FocusPanel>
 </ui:UiBinder> 

@@ -4,9 +4,13 @@
 *.jar
 *.war
 *.ear
+.gwt/
 .classpath
 .project
 .settings/
 output.log
-lanbinDB*
+uPasteDB.log
+uPasteDB.properties
+uPasteDB.script
 target/
+gwt-unitCache/

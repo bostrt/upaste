@@ -1,13 +1,24 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+    xmlns:a="urn:import:net.upaste.client.component">
 	<ui:style>
 		
 	</ui:style>
-	<g:FlowPanel>
-	   <g:Label ui:field="title"></g:Label>
-	   <g:Label ui:field="email"></g:Label>
-	   <g:Label ui:field="isPrivate"></g:Label>
-	   <g:TextArea enabled="false" ui:field="content"></g:TextArea>
-	</g:FlowPanel>
+	<g:HorizontalPanel>
+		<g:cell>
+			<a:RecentPasteList ui:field="recentPasteList" />
+		</g:cell>
+		<g:cell>
+			<g:FlowPanel>
+				<g:Label ui:field="title"></g:Label>
+				<g:Label ui:field="email"></g:Label>
+				<g:Label ui:field="isPrivate"></g:Label>
+				<g:HTML>
+					<pre id="pre-content-container" class="prettyprint">
+					</pre>
+				</g:HTML>
+			</g:FlowPanel>
+		</g:cell>
+	</g:HorizontalPanel>
 </ui:UiBinder> 

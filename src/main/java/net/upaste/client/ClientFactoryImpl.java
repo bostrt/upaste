@@ -1,5 +1,6 @@
 package net.upaste.client;
 
+import net.upaste.client.component.UPasteTitle;
 import net.upaste.client.view.NewPasteView;
 import net.upaste.client.view.PasteView;
 import net.upaste.client.view.impl.NewPasteViewImpl;
@@ -13,6 +14,8 @@ public class ClientFactoryImpl implements ClientFactory
 {
 	private final EventBus bus = new SimpleEventBus();
 	private final NewPasteView newPasteView = new NewPasteViewImpl();
+	private final PasteView pasteView = new PasteViewImpl();
+	private final UPasteTitle title = new UPasteTitle();
 	private final PlaceController placeController = new PlaceController(bus);
 	
 	@Override
@@ -32,6 +35,11 @@ public class ClientFactoryImpl implements ClientFactory
 
 	@Override
 	public PasteView getPasteView() {
-		return new PasteViewImpl();
+		return pasteView;
+	}
+	
+	@Override
+	public UPasteTitle getTitle() {
+		return title;
 	}
 }

@@ -1,0 +1,23 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	
+	<ui:style>
+	.panel {
+        width: 100%;
+        min-width: 80px;
+        max-width: 180px;
+        margin-left: 10px;
+    }
+    .recent-pastes-header {
+	   width: 100%;
+	   font-size: 16pt;
+	   font-style: italic;
+	   color: grey;
+	}
+	</ui:style>
+	<g:VerticalPanel styleName="{style.panel}">
+        <g:Label styleName="{style.recent-pastes-header}">Recent</g:Label>
+        <g:VerticalPanel ui:field="recentPastePanel"></g:VerticalPanel>
+	</g:VerticalPanel>
+</ui:UiBinder> 

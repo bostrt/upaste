@@ -1,0 +1,24 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+	.panel
+	{
+	   padding-bottom: 8px;
+	}
+	.anchor
+	{
+	   
+	}
+    .timeDelta
+    {
+       color: grey;
+       font-size: 8pt;
+       margin-top: -4px;
+    }
+	</ui:style>
+	<g:HTMLPanel styleName="{style.panel}">
+	   <g:Anchor styleName="{style.anchor}" ui:field="anchor"></g:Anchor>
+	   <g:HTML styleName="{style.timeDelta}" ui:field="timeDelta"></g:HTML>
+	</g:HTMLPanel>
+</ui:UiBinder> 

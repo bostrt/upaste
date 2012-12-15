@@ -16,6 +16,8 @@
 		<!-- GWT needs at least java 1.6 -->
 		<maven.compiler.source>1.6</maven.compiler.source>
 		<maven.compiler.target>1.6</maven.compiler.target>
+		<webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
 	<dependencies>
@@ -87,10 +89,9 @@
 
 	<build>
 		<!-- Generate compiled stuff in the folder used for developing mode -->
-		<outputDirectory>target/www/WEB-INF/classes</outputDirectory>
+		<outputDirectory>${webappDirectory}/WEB-INF/classes</outputDirectory>
 
 		<plugins>
-
 			<!-- GWT Maven Plugin -->
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
@@ -125,12 +126,11 @@
 				<!-- Plugin configuration. There are many available options, see gwt-maven-plugin 
 					documentation at codehaus.org -->
 				<configuration>
-					<!-- URL that should be automatically opened in the GWT shell (gwt:run). -->
+					<extraJvmArgs>-Xmx2048M -Xss2048k</extraJvmArgs>
+					<disableCastChecking>true</disableCastChecking>
+					<disableRunAsync>true</disableRunAsync>
 					<runTarget>UPaste.html</runTarget>
-					<!-- Location of the develop-mode web application structure (gwt:run). -->
-					<hostedWebapp>target/www</hostedWebapp>
-					<!-- Ask GWT to create the Story of Your Compile (SOYC) (gwt:compile) -->
-					<compileReport>true</compileReport>
+					<hostedWebapp>${webappDirectory}</hostedWebapp>
 				</configuration>
 			</plugin>
 

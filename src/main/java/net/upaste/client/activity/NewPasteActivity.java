@@ -5,6 +5,7 @@ import java.util.List;
 import net.upaste.client.ClientFactory;
 import net.upaste.client.PasteService;
 import net.upaste.client.PasteServiceAsync;
+import net.upaste.client.place.PastePlace;
 import net.upaste.client.view.NewPasteView;
 import net.upaste.shared.data.model.Paste;
 
@@ -37,7 +38,7 @@ public class NewPasteActivity extends AbstractActivity implements NewPasteView.P
 		service.getRecentPastes(10, new AsyncCallback<List<Paste>>() {
 			@Override
 			public void onSuccess(List<Paste> result) {
-				view.setRecentPastes(result);
+				view.setRecentPasteList(result);
 			}
 			
 			@Override
@@ -57,7 +58,8 @@ public class NewPasteActivity extends AbstractActivity implements NewPasteView.P
 				service.addPaste(p, new AsyncCallback<Paste>() {
 					@Override
 					public void onSuccess(Paste result) {
-						GWT.log("SUCCESS!");
+						PastePlace place = new PastePlace(result.getID());
+						goTo(place);
 					}
 					
 					@Override
@@ -68,7 +70,7 @@ public class NewPasteActivity extends AbstractActivity implements NewPasteView.P
 				event.cancel();
 			}
 		});
-
+		
 		// Put view on screen
 		panel.setWidget(view);
 	}

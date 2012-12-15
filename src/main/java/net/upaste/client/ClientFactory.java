@@ -1,5 +1,6 @@
 package net.upaste.client;
 
+import net.upaste.client.component.UPasteTitle;
 import net.upaste.client.view.NewPasteView;
 import net.upaste.client.view.PasteView;
 
@@ -10,5 +11,6 @@ public interface ClientFactory {
 	EventBus getEventBus();
 	NewPasteView getNewPasteView();
 	PasteView getPasteView();
+	UPasteTitle getTitle();
 	PlaceController getPlaceController();
 }

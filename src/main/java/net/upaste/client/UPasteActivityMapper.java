@@ -1,7 +1,9 @@
 package net.upaste.client;
 
+import net.upaste.client.activity.BrowseActivity;
 import net.upaste.client.activity.NewPasteActivity;
 import net.upaste.client.activity.PasteActivity;
+import net.upaste.client.place.BrowsePlace;
 import net.upaste.client.place.NewPastePlace;
 import net.upaste.client.place.PastePlace;
 
@@ -21,10 +23,13 @@ public class UPasteActivityMapper implements ActivityMapper
 	@Override
 	public Activity getActivity(Place place) {
 		if(place instanceof NewPastePlace) {
-			return new NewPasteActivity(clientFactory);
+			return new NewPasteActivity((NewPastePlace) place, clientFactory);
 		}
 		else if(place instanceof PastePlace) {
 			return new PasteActivity((PastePlace)place, clientFactory);
+		}
+		else if(place instanceof BrowsePlace) {
+			return new BrowseActivity((BrowsePlace)place, clientFactory);
 		}
 		return null;
 	}

@@ -9,23 +9,19 @@ import net.upaste.client.place.PastePlace;
 import net.upaste.client.view.PasteView;
 import net.upaste.shared.data.model.Paste;
 
-import com.google.gwt.activity.shared.AbstractActivity;
 import com.google.gwt.core.shared.GWT;
 import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 
-public class PasteActivity extends AbstractActivity
+public class PasteActivity extends AbstractUPasteActivity<PastePlace>
 {
-	private ClientFactory clientFactory;
 	private PasteServiceAsync service;
-	private PastePlace place;
 	private PasteView view;
 	
 	public PasteActivity(PastePlace place, ClientFactory clientFactory)
 	{
-		this.clientFactory = clientFactory;
-		this.place = place;
+		super(place, clientFactory);
 	}
 
 	@Override

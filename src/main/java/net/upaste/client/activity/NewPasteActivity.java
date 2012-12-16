@@ -5,28 +5,26 @@ import java.util.List;
 import net.upaste.client.ClientFactory;
 import net.upaste.client.PasteService;
 import net.upaste.client.PasteServiceAsync;
+import net.upaste.client.place.NewPastePlace;
 import net.upaste.client.place.PastePlace;
 import net.upaste.client.view.NewPasteView;
 import net.upaste.shared.data.model.Paste;
 
-import com.google.gwt.activity.shared.AbstractActivity;
 import com.google.gwt.core.shared.GWT;
 import com.google.gwt.event.shared.EventBus;
-import com.google.gwt.place.shared.Place;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.gwt.user.client.ui.FormPanel.SubmitEvent;
 import com.google.gwt.user.client.ui.FormPanel.SubmitHandler;
 
-public class NewPasteActivity extends AbstractActivity implements NewPasteView.Presenter
+public class NewPasteActivity extends AbstractUPasteActivity<NewPastePlace> implements NewPasteView.Presenter
 {
-	public ClientFactory clientFactory;
 	private NewPasteView view;
 	private PasteServiceAsync service;
 	
-	public NewPasteActivity(ClientFactory clientFactory)
+	public NewPasteActivity(NewPastePlace place, ClientFactory clientFactory)
 	{
-		this.clientFactory = clientFactory;
+		super(place, clientFactory);
 	}
 	
 	@Override
@@ -73,11 +71,5 @@ public class NewPasteActivity extends AbstractActivity implements NewPasteView.P
 		
 		// Put view on screen
 		panel.setWidget(view);
-	}
-
-	@Override
-	public void goTo(Place place)
-	{
-		clientFactory.getPlaceController().goTo(place);
 	}
 }

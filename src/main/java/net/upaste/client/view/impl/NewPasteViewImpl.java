@@ -11,7 +11,6 @@ import com.google.gwt.safehtml.shared.SafeHtmlUtils;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.CheckBox;
-import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FormPanel;
 import com.google.gwt.user.client.ui.FormPanel.SubmitCompleteHandler;
 import com.google.gwt.user.client.ui.FormPanel.SubmitHandler;
@@ -19,10 +18,9 @@ import com.google.gwt.user.client.ui.TextArea;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
 
-public class NewPasteViewImpl extends Composite implements NewPasteView
+public class NewPasteViewImpl extends AbstractUPasteView implements NewPasteView
 {
 	private static NewPasteViewImplUiBinder uiBinder = GWT.create(NewPasteViewImplUiBinder.class);
-	private Presenter presenter;
 	
 	interface NewPasteViewImplUiBinder extends UiBinder<Widget, NewPasteViewImpl> {
 	}
@@ -49,11 +47,6 @@ public class NewPasteViewImpl extends Composite implements NewPasteView
 	public void setRecentPasteList(List<Paste> pastes)
 	{
 		this.recentPasteList.setRecentPasteList(pastes);
-	}
-	
-	@Override
-	public void setPresenter(Presenter presenter) {
-		this.presenter = presenter;
 	}
 	
 	@Override

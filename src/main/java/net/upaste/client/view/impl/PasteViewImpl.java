@@ -3,7 +3,6 @@ package net.upaste.client.view.impl;
 import java.util.List;
 
 import net.upaste.client.component.RecentPasteList;
-import net.upaste.client.view.NewPasteView.Presenter;
 import net.upaste.client.view.PasteView;
 import net.upaste.shared.data.model.Paste;
 
@@ -13,14 +12,11 @@ import com.google.gwt.dom.client.Element;
 import com.google.gwt.safehtml.shared.SafeHtmlUtils;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
-import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 
-public class PasteViewImpl extends Composite implements PasteView
+public class PasteViewImpl extends AbstractUPasteView implements PasteView
 {
-	private Presenter presenter;
-	
 	private static PasteViewImplUiBinder uiBinder = GWT
 			.create(PasteViewImplUiBinder.class);
 
@@ -38,11 +34,6 @@ public class PasteViewImpl extends Composite implements PasteView
 
 	public PasteViewImpl() {
 		initWidget(uiBinder.createAndBindUi(this));
-	}
-
-	@Override
-	public void setPresenter(Presenter presenter) {
-		this.presenter = presenter;
 	}
 
 	@Override

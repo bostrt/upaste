@@ -7,6 +7,7 @@ import net.upaste.shared.data.model.Paste;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
@@ -21,12 +22,15 @@ public class RecentPasteList extends Composite {
 
 	@UiField
 	VerticalPanel recentPastePanel;
+	@UiField
+	Anchor moreAnchor;
+	
 	private List<Paste> recentPasteList;
 
 	public RecentPasteList() {
 		initWidget(uiBinder.createAndBindUi(this));
 	}
-
+	
 	public void setRecentPasteList(List<Paste> recentPasteList)
 	{
 		this.recentPasteList = recentPasteList;
@@ -39,6 +43,5 @@ public class RecentPasteList extends Composite {
 			link.setPaste(p);
 			recentPastePanel.add(link);
 		}
-		
 	}
 }

@@ -31,16 +31,24 @@ public class RecentPasteLink extends Composite {
 	public void setPaste(Paste paste)
 	{
 		String title;
+		String fullTitle = null;
 		if(paste.getTitle() == null || paste.getTitle().trim().isEmpty()) {
 			title = "Unknown";
-		} else if(paste.getTitle().length() > 40){
-			title = SafeHtmlUtils.htmlEscape(paste.getTitle().substring(0, 40)) + "...";
+			fullTitle = "No paste title was given.";
+		} else if(paste.getTitle().length() > 20){
+			fullTitle = SafeHtmlUtils.htmlEscape(paste.getTitle());
+			title = SafeHtmlUtils.htmlEscape(paste.getTitle().substring(0, 20)) + "...";
 		} else {
 			title = SafeHtmlUtils.htmlEscape(paste.getTitle());
 		}
 		anchor.setHTML(SafeHtmlUtils.htmlEscape(title));
 		anchor.setHref("#foo:" + paste.getID());
 		
+		if(fullTitle != null) {
+			anchor.setTitle(fullTitle);
+		}
+
+		// TODO: This needs to reflect actual time delta between now and time of pasting
 		timeDelta.setText("1 hour ago");
 	}
 }

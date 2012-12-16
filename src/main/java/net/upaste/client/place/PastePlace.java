@@ -16,7 +16,7 @@ public class PastePlace extends Place
 		return pasteId;
 	}
 
-	@Prefix("foo")
+	@Prefix("paste")
 	public static class Tokenizer implements PlaceTokenizer<PastePlace>
 	{
 

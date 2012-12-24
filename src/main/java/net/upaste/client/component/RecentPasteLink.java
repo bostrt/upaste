@@ -1,5 +1,6 @@
 package net.upaste.client.component;
 
+import net.upaste.client.place.PastePlace;
 import net.upaste.shared.data.model.Paste;
 
 import com.google.gwt.core.client.GWT;
@@ -42,7 +43,7 @@ public class RecentPasteLink extends Composite {
 			title = SafeHtmlUtils.htmlEscape(paste.getTitle());
 		}
 		anchor.setHTML(SafeHtmlUtils.htmlEscape(title));
-		anchor.setHref("#foo:" + paste.getID());
+		anchor.setHref("#paste:" + paste.getID());
 		
 		if(fullTitle != null) {
 			anchor.setTitle(fullTitle);

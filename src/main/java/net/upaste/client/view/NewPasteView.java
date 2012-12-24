@@ -11,4 +11,5 @@ public interface NewPasteView extends UPasteView, HasRecentPastes
 	boolean getIsPrivate();
 	void addSubmitCompleteHandler(SubmitCompleteHandler handler);
 	void addSubmitHandler(SubmitHandler handler);
+	void clearAllFields();
 }

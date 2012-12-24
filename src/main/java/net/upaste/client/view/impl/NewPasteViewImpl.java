@@ -78,4 +78,11 @@ public class NewPasteViewImpl extends AbstractUPasteView implements NewPasteView
 	public void addSubmitHandler(SubmitHandler handler) {
 		pasteForm.addSubmitHandler(handler);
 	}
+	
+	@Override
+	public void clearAllFields() {
+		content.setValue("");
+		email.setValue("");
+		title.setValue("");
+	}
 }

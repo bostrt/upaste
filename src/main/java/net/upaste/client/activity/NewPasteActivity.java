@@ -32,6 +32,7 @@ public class NewPasteActivity extends AbstractUPasteActivity<NewPastePlace> impl
 	{
 		view = clientFactory.getNewPasteView();
 		service = GWT.create(PasteService.class);
+		view.clearAllFields();
 
 		service.getRecentPastes(10, new AsyncCallback<List<Paste>>() {
 			@Override

@@ -29,7 +29,8 @@ public class PasteActivity extends AbstractUPasteActivity<PastePlace>
 	{
 		service = GWT.create(PasteService.class);
 		view = clientFactory.getPasteView();
-		
+		view.clearAllFields();
+
 		service.loadPaste(place.getPasteId(), new AsyncCallback<Paste>() {
 			@Override
 			public void onFailure(Throwable caught) {

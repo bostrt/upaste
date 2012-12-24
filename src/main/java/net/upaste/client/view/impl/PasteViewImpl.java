@@ -12,6 +12,7 @@ import com.google.gwt.dom.client.Element;
 import com.google.gwt.safehtml.shared.SafeHtmlUtils;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 
@@ -31,6 +32,8 @@ public class PasteViewImpl extends AbstractUPasteView implements PasteView
 	Label isPrivate;
 	@UiField
 	RecentPasteList recentPasteList;
+	@UiField
+	HTML contentContainer;
 
 	public PasteViewImpl() {
 		initWidget(uiBinder.createAndBindUi(this));
@@ -38,7 +41,7 @@ public class PasteViewImpl extends AbstractUPasteView implements PasteView
 
 	@Override
 	public void setContent(String content) {
-		Element e = Document.get().getElementById("pre-content-container");
+		Element e = contentContainer.getElement().getFirstChildElement();
 		e.setInnerHTML(content);
 	}
 
@@ -60,5 +63,16 @@ public class PasteViewImpl extends AbstractUPasteView implements PasteView
 	@Override
 	public void setRecentPasteList(List<Paste> pastes) {
 		this.recentPasteList.setRecentPasteList(pastes);
+	}
+
+	@Override
+	public void clearAllFields() {
+		email.setText("");
+		isPrivate.setText("");
+		title.setText("");
+		Element e = contentContainer.getElement().getFirstChildElement();
+		if(e != null) {
+			e.setInnerHTML("");
+		}
 	}
 }

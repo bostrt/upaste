@@ -14,7 +14,7 @@
 				<g:Label ui:field="title"></g:Label>
 				<g:Label ui:field="email"></g:Label>
 				<g:Label ui:field="isPrivate"></g:Label>
-				<g:HTML>
+				<g:HTML ui:field="contentContainer">
 					<pre id="pre-content-container" class="prettyprint">
 					</pre>
 				</g:HTML>

@@ -7,4 +7,5 @@ public interface PasteView extends UPasteView, HasRecentPastes
 	void setTitle(String title);
 	void setEmail(String email);
 	void setIsPrivate(boolean isPrivate);
+	void clearAllFields();
 }

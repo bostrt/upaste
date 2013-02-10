@@ -1,4 +1,4 @@
-[uPaste.net](http://www.upaste.net)
+
 
 uPaste
 ======
